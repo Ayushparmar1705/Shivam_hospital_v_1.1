@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "gallery": "Gallery",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
+  },
+  "home": {
+    "welcome": "Welcome to Shivam Childrens Hospital",
+    "subtitle": "Compassionate care for your little ones.",
+    "tagline": "Advanced care for your little superheroes",
+    "cta": "Contact Us"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "At Shivam Children Hospital, we believe that every child deserves care that is not only medically sound but also filled with warmth, compassion, and hope. Since the day we opened our doors in Botad, our mission has been simple yet powerful — to stand beside families during their most important moments and provide healthcare they can trust with their hearts.  For parents, nothing matters more than the well‑being of their child. We understand the fear, the worry, and the sleepless nights that come with illness. That is why our hospital was built not just as a medical facility, but as a place where families feel supported, heard, and cared for. Every child who enters our hospital is treated with the same love and attention we would give our own. \n\n Our team of experienced pediatric specialists, nurses, and support staff work together to create an environment where healing feels natural and comforting. From newborn care and vaccinations to emergency support and general treatment, we ensure that every service reflects our commitment to safety, empathy, and excellence.  <br> Over the years, Shivam Children Hospital has grown into a trusted name in Botad — not because of our infrastructure alone, but because of the relationships we’ve built with the community. Parents come to us with confidence, and children leave with smiles. That is the true measure of our success. /p At our core, we are more than a hospital. We are a family dedicated to protecting the health, happiness, and future of every child who walks through our doors. ",
+    "values": {
+      "expertise": "Expert Care",
+      "expertiseDesc": "Board-certified pediatricians and specialists working together to deliver the highest standard of care.",
+      "compassion": "Compassionate Support",
+      "compassionDesc": "We are committed to making every visit comforting for both parents and children.",
+      "clip": "Family Focus",
+      "clipDesc": "We partner with families to create personalized care plans and empowering education."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We’re here to answer your questions and support your child’s care.",
+    "mapTitle": "Find Us",
+    "getInTouch": "Get in Touch",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Consulting Hours",
+    "hoursValue": "Monday to Friday\n10 a.m.–1 p.m.\n5–7 p.m.\n\nSaturday\n10 a.m.–1 p.m.\n5–6 p.m.\n\nSunday\nClosed",
+    "mapLink": "View on map"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "A look inside our facilities and care."
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What parents and guardians say about our care."
+  },
+  "language": {
+    "english": "English",
+    "hindi": "हिंदी",
+    "gujarati": "ગુજરાતી"
+  }
+}
