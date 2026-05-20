@@ -9,15 +9,13 @@ module.exports = (req, res) => {
       "reviews.json"
     );
 
-    const jsonData = fs.readFileSync(filePath, "utf8");
+    const data = fs.readFileSync(filePath, "utf8");
 
-    const reviews = JSON.parse(jsonData);
+    res.status(200).json(JSON.parse(data));
 
-    res.status(200).json(reviews);
   } catch (error) {
     res.status(500).json({
-      error: "Failed to load reviews",
-      message: error.message
+      error: error.message
     });
   }
 };
