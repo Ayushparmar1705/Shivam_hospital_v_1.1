@@ -1,0 +1,190 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "gallery": "Gallery",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "book": "Book a Visit"
+  },
+  "home": {
+    "welcome": "Caring for Every Child, Every Day",
+    "welcomeLine1": "Caring for every",
+    "welcomeLine2": "little life",
+    "subtitle": "Premier pediatric and neonatal hospital in Botad — advanced NICU & PICU, PM-JAY empanelled, and a team families trust with their hearts.",
+    "tagline": "Where expertise meets compassion",
+    "badge": "Shivam Children Hospital · Botad",
+    "trustHeadline": "No. 1 trusted children's hospital in Botad",
+    "pmjayShort": "PM-JAY Empanelled",
+    "cta": "Book a Visit",
+    "ctaSecondary": "Our story",
+    "ctaEyebrow": "Take the next step",
+    "callNow": "Call +91 78782 82866",
+    "cardFooter": "Trusted by families across Botad for routine visits and critical care.",
+    "stat1Value": "NICU",
+    "stat1Label": "& PICU",
+    "stat2Value": "24/7",
+    "stat2Label": "Emergency",
+    "stat3Value": "PM-JAY",
+    "stat3Label": "Covered",
+    "scrollHint": "Discover",
+    "marquee": {
+      "m1": "Neonatal ICU",
+      "m2": "Pediatric ICU",
+      "m3": "Ayushman Bharat PM-JAY",
+      "m4": "Vaccination & wellness",
+      "m5": "Emergency pediatric care",
+      "m6": "Dr. Jignesh D. Vaghela"
+    },
+    "excellenceEyebrow": "Centers of excellence",
+    "excellenceTitle": "Complete pediatric care under one roof",
+    "excellenceLead": "Hospital-grade technology and specialist-led teams — designed for newborns through adolescence.",
+    "excellence": {
+      "nicu": {
+        "title": "Neonatal ICU",
+        "desc": "Advanced care for newborns and low-birth-weight infants with CPAP, phototherapy, and continuous monitoring."
+      },
+      "picu": {
+        "title": "Pediatric ICU",
+        "desc": "Critical care for serious childhood illness with expert diagnosis and round-the-clock nursing."
+      },
+      "vaccine": {
+        "title": "Vaccination & wellness",
+        "desc": "Immunization, growth monitoring, and developmental assessment in a child-friendly setting."
+      },
+      "emergency": {
+        "title": "Emergency care",
+        "desc": "Immediate pediatric support when every minute matters — day or night."
+      }
+    },
+    "feature1Title": "Clinical excellence",
+    "feature1Desc": "Led by Dr. Jignesh D. Vaghela — neonatologist & child specialist with international training.",
+    "feature2Title": "Family-first care",
+    "feature2Desc": "A hospital built for parents who need to feel heard, supported, and confident.",
+    "feature3Title": "Voices of trust",
+    "feature3Desc": "Read what families across Botad say about their experience with us.",
+    "showcaseEyebrow": "Our commitment",
+    "showcaseTitle": "Medicine with a human touch",
+    "showcaseLead": "We combine evidence-based pediatrics with the warmth every child and parent deserves.",
+    "showcaseL1": "Board-certified pediatric specialists and dedicated nursing teams",
+    "showcaseL2": "In-house pharmacy and pathology for seamless treatment",
+    "showcaseL3": "Deluxe to general rooms — comfort for every family",
+    "doctorRole": "Neonatologist & Child Specialist",
+    "journeyEyebrow": "Patient journey",
+    "journeyTitle": "Three steps to exceptional care",
+    "step1Title": "Connect with us",
+    "step1Desc": "Call, visit, or walk in — our team guides you through appointments and emergencies.",
+    "step2Title": "Personalized treatment",
+    "step2Desc": "From wellness visits to intensive care — every plan is tailored to your child.",
+    "step3Title": "Lifelong partnership",
+    "step3Desc": "Follow-ups, vaccines, and growth tracking for a healthier future.",
+    "galleryTeaserTitle": "Photo gallery",
+    "galleryTeaserDesc": "A few recent snapshots from our hospital — we are updating this section with professional photography soon.",
+    "viewGallery": "View gallery",
+    "learnMore": "Learn more",
+    "ctaBandTitle": "Your child deserves nothing less than the best",
+    "ctaBandSubtitle": "Schedule a consultation or reach our team 24/7. Shivam Children Hospital — Paliyad Road, Botad."
+  },
+  "about": {
+    "eyebrow": "Who we are",
+    "title": "About Us",
+    "lead": "Where medical excellence meets the warmth every child deserves — in the heart of Botad.",
+    "paragraph1": "At Shivam Children Hospital, we believe that every child deserves care that is not only medically sound but also filled with warmth, compassion, and hope. Since the day we opened our doors in Botad, our mission has been simple yet powerful — to stand beside families during their most important moments and provide healthcare they can trust with their hearts.",
+    "paragraph2": "For parents, nothing matters more than the well-being of their child. We understand the fear, the worry, and the sleepless nights that come with illness. That is why our hospital was built not just as a medical facility, but as a place where families feel supported, heard, and cared for. Every child who enters our hospital is treated with the same love and attention we would give our own.",
+    "paragraph3": "Our team of experienced pediatric specialists, nurses, and support staff work together to create an environment where healing feels natural and comforting. From newborn care and vaccinations to emergency support and general treatment, we ensure that every service reflects our commitment to safety, empathy, and excellence.",
+    "paragraph4": "As an Ayushman Bharat (PM-JAY) empanelled hospital, we proudly extend quality healthcare to families who need it most, ensuring that financial limitations never stand in the way of a child's treatment.",
+    "paragraph5": "Over the years, Shivam Children Hospital has grown into a trusted name in Botad — not because of our infrastructure alone, but because of the relationships we've built with the community. Parents come to us with confidence, and children leave with smiles. That is the true measure of our success.",
+    "paragraph6": "At our core, we are more than a hospital. We are a family dedicated to protecting the health, happiness, and future of every child who walks through our doors.",
+    "pmjayBadge": "PM-JAY Empanelled",
+    "pmjayTitle": "Ayushman Bharat — care for every family",
+    "locationNote": "Shivam Children Hospital — Ummiya Complex (behind LIC Office), Paliyad Road, opposite Bus Stand, Botad, Gujarat 364710",
+    "trustPmjay": "PM-JAY Empanelled",
+    "trustNicu": "NICU & PICU",
+    "trustHours": "Emergency care",
+    "trustCommunity": "Trusted in Botad",
+    "ctaTitle": "Ready to visit Shivam Children Hospital?",
+    "ctaDesc": "Book a consultation or reach us for emergencies — we are here for families in Botad.",
+    "ctaButton": "Contact us",
+    "doctor": {
+      "eyebrow": "Lead specialist",
+      "name": "Dr. Jignesh D. Vaghela",
+      "qualifications": "M.B.B.S., D.PED., P.G.P.N. (USA)",
+      "specialization": "Neonatologist & Child Specialist",
+      "bio": "Dr. Vaghela leads Shivam Children Hospital with expertise in newborn intensive care, serious childhood illness, and long-term pediatric follow-up. Families across Botad rely on his guidance for both routine check-ups and critical care decisions."
+    },
+    "services": {
+      "eyebrow": "What we offer",
+      "title": "Our Specialties",
+      "desc": "Comprehensive pediatric services under one roof — from well-baby visits to intensive care.",
+      "items": {
+        "generalPediatrics": "General Pediatrics",
+        "nicu": "Neonatal ICU (NICU)",
+        "picu": "Pediatric ICU (PICU)",
+        "vaccination": "Vaccination Center",
+        "developmental": "Developmental Assessment",
+        "growth": "Growth Monitoring",
+        "pharmacy": "In-house Pharmacy",
+        "lab": "Pathology Lab"
+      }
+    },
+    "facilities": {
+      "eyebrow": "Technology & comfort",
+      "title": "Facilities & Equipment",
+      "desc": "Modern infrastructure designed for safe, effective treatment and a comfortable family experience.",
+      "items": {
+        "f1": "Advanced NICU for newborns and low-birth-weight infants",
+        "f2": "CPAP respiratory support for newborns with breathing difficulties",
+        "f3": "Phototherapy for neonatal jaundice",
+        "f4": "Central oxygen lines, infusion pumps, pulse oximeters & glucometers",
+        "f5": "Expert diagnosis and treatment for serious childhood illnesses",
+        "f6": "Spacious waiting area and room options: Deluxe, Special, Semi-Special & General",
+        "f7": "In-house pharmacy and pathology lab for convenient care"
+      }
+    },
+    "valuesEyebrow": "Our promise",
+    "valuesTitle": "Why families choose us",
+    "values": {
+      "expertise": "Expert Care",
+      "expertiseDesc": "Board-certified pediatricians and specialists delivering the highest standard of care.",
+      "compassion": "Compassionate Support",
+      "compassionDesc": "We make every visit comforting for both parents and children.",
+      "clip": "Family Focus",
+      "clipDesc": "Personalized care plans and education that empower families."
+    }
+  },
+  "contact": {
+    "eyebrow": "Reach us",
+    "title": "Contact Us",
+    "subtitle": "We are here to answer your questions and support your child's care.",
+    "mapTitle": "Find Us",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Consulting Hours",
+    "hoursValue": "Monday to Friday\n10 a.m.–1 p.m.\n5–7 p.m.\n\nSaturday\n10 a.m.–1 p.m.\n5–6 p.m.\n\nSunday\nClosed",
+    "mapLink": "View on map",
+    "appointmentNote": "Appointments available via phone"
+  },
+  "gallery": {
+    "eyebrow": "Our space",
+    "title": "Gallery",
+    "subtitle": "A glimpse inside our facilities and the care we provide.",
+    "imageAlt": "Hospital photo"
+  },
+  "testimonials": {
+    "eyebrow": "Patient voices",
+    "title": "Testimonials",
+    "subtitle": "What parents and guardians say about our care.",
+    "loading": "Loading reviews…",
+    "empty": "Reviews will appear here soon."
+  },
+  "footer": {
+    "tagline": "Compassionate pediatric care for families in Botad and beyond.",
+    "rights": "All rights reserved."
+  },
+  "language": {
+    "english": "English",
+    "hindi": "हिंदी",
+    "gujarati": "ગુજરાતી"
+  }
+}

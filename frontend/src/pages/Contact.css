@@ -1,0 +1,118 @@
+.contact-root {
+  width: 100%;
+}
+
+.contact-map {
+  margin-bottom: 3rem;
+}
+
+.contact-map-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.map-frame {
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  height: min(440px, 55vh);
+  box-shadow: var(--shadow-lg);
+  border: 3px solid var(--color-surface);
+  outline: 1px solid var(--color-border);
+}
+
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.contact-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-premium);
+}
+
+.contact-card-icon {
+  display: inline-flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-coral-soft));
+  border-radius: var(--radius-md);
+}
+
+.contact-card h3 {
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contact-card-subhead {
+  margin-top: 1.25rem;
+}
+
+.contact-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 0.65rem;
+}
+
+.contact-hours {
+  text-align: left;
+  display: inline-block;
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.15rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.contact-link:hover {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-coral));
+  color: #fff;
+}
+
+.contact-link--inline {
+  padding: 0;
+  background: none;
+  color: var(--color-primary);
+}
+
+.contact-note {
+  font-size: 0.85rem !important;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
