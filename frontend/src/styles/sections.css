@@ -474,10 +474,35 @@
 }
 
 @media (max-width: 1024px) {
+  .about-values {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-lower-grid {
+    grid-template-columns: 1fr;
+  }
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
   .about-values,
-  .about-lower-grid,
   .testimonials-grid,
-  .contact-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
   .gallery-grid {
     grid-template-columns: 1fr;
   }

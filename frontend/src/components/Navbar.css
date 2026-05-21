@@ -129,6 +129,82 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* Language onboarding tooltip */
+.nav-lang-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.nav-lang-tooltip {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1100;
+  width: 250px;
+  background: var(--color-navy, #0f172a);
+  color: #ffffff;
+  padding: 0.85rem 2rem 0.85rem 1rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg), 0 4px 20px rgba(15, 23, 42, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  animation: tooltip-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--color-navy, #0f172a);
+}
+
+.nav-lang-tooltip p {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.tooltip-close {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.25rem;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.tooltip-close:hover {
+  color: #ffffff;
+}
+
+@keyframes tooltip-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 @media (max-width: 900px) {
   .logo-img {
     width: 57px;
@@ -181,5 +257,18 @@
   .nav-cta {
     width: 100%;
     text-align: center;
+  }
+
+  .nav-lang-wrapper {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-lang-tooltip {
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw - 5rem);
+    max-width: 320px;
   }
 }

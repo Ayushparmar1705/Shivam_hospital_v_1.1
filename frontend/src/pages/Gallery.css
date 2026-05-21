@@ -122,3 +122,19 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 600px) {
+  .gallery-nav {
+    display: none;
+  }
+  .gallery-modal-close {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  .gallery-modal {
+    padding: 1rem;
+  }
+}

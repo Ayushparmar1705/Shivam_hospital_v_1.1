@@ -8,6 +8,8 @@ import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollReveal from "./components/ScrollReveal";
+import LanguageGate from "./components/LanguageGate";
+import QuickHelpWidget from "./components/QuickHelpWidget";
 
 function SinglePageLayout() {
   const location = useLocation();
@@ -43,6 +45,8 @@ function SinglePageLayout() {
 function App() {
   return (
     <Router>
+      <LanguageGate />
+      <QuickHelpWidget />
       <Navbar />
       <Routes>
         <Route path="/*" element={<SinglePageLayout />} />

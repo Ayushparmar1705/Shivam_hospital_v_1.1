@@ -53,22 +53,34 @@ export async function fetchReviewsFromSerpApi() {
 
 export async function getReviews() {
   const filePath = getReviewsFilePath();
+  let cachedData = null;
 
-  if (!fs.existsSync(filePath)) {
-    return fetchReviewsFromSerpApi();
+  if (fs.existsSync(filePath)) {
+    try {
+      cachedData = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    } catch (error) {
+      console.error("Error reading cached reviews:", error.message);
+    }
   }
 
-  try {
-    const saved = JSON.parse(fs.readFileSync(filePath, "utf8"));
-    const expired = Date.now() - saved.lastUpdated > SIXTY_DAYS_MS;
-
-    if (expired) {
-      return fetchReviewsFromSerpApi();
+  if (cachedData) {
+    const expired = Date.now() - cachedData.lastUpdated > SIXTY_DAYS_MS;
+    if (!expired) {
+      return cachedData.reviews || [];
     }
 
-    return saved.reviews || [];
-  } catch (error) {
-    console.error("Error reading cached reviews:", error.message);
-    return fetchReviewsFromSerpApi();
+    // Cached reviews are expired, try fetching fresh ones
+    console.log("Cached reviews expired. Attempting to fetch fresh reviews from SerpAPI...");
+    const fresh = await fetchReviewsFromSerpApi();
+    if (fresh && fresh.length > 0) {
+      return fresh;
+    }
+
+    // Fresh fetch failed (e.g., no API key, network error, empty results), fall back to expired cache
+    console.log("Fresh reviews fetch failed or returned empty. Falling back to expired cached reviews.");
+    return cachedData.reviews || [];
   }
+
+  // No cache available, fetch fresh reviews
+  return fetchReviewsFromSerpApi();
 }

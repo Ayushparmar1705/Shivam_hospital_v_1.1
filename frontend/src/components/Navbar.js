@@ -2,16 +2,33 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import logo from "../assets/logo.jpeg";
+import LanguageSwitcher from "./LanguageSwitcher";
 import "./Navbar.css";
 
 export default function Navbar() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("showLanguageTooltip") === "true") {
+      setShowTooltip(true);
+      const timer = setTimeout(() => {
+        dismissTooltip();
+      }, 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [i18n.language]);
+
+  const dismissTooltip = () => {
+    setShowTooltip(false);
+    sessionStorage.removeItem("showLanguageTooltip");
+  };
 
   return (
     <header className="navbar">
@@ -43,6 +60,25 @@ export default function Navbar() {
           <li><Link to="/testimonials">{t("nav.testimonials")}</Link></li>
           <li><Link to="/contact">{t("nav.contact")}</Link></li>
         </ul>
+        
+        <div className="nav-lang-wrapper">
+          <LanguageSwitcher />
+          {showTooltip && (
+            <div className="nav-lang-tooltip" role="tooltip">
+              <span className="tooltip-arrow"></span>
+              <p>{t("nav.languageTooltip")}</p>
+              <button 
+                type="button" 
+                className="tooltip-close" 
+                onClick={dismissTooltip}
+                aria-label="Dismiss tooltip"
+              >
+                &times;
+              </button>
+            </div>
+          )}
+        </div>
+
         <Link to="/contact" className="nav-cta">
           {t("nav.book")}
         </Link>

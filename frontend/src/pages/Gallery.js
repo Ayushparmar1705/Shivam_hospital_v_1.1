@@ -14,25 +14,13 @@ const images = [
 export default function Gallery() {
   const { t } = useTranslation();
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const mobile = window.innerWidth <= 768;
-      setIsMobile(mobile);
-      if (mobile) {
-        setSelectedIndex(null);
-        document.body.style.overflow = "auto";
-      }
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  
+  // Touch swipe states
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const minSwipeDistance = 50;
 
   const openModal = (index) => {
-    if (isMobile) return;
     setSelectedIndex(index);
   };
 
@@ -47,18 +35,43 @@ export default function Gallery() {
   };
 
   const handleBackdropClick = (e) => {
-    if (e.target.classList.contains("gallery-modal")) closeModal();
+    if (e.target.classList.contains("gallery-modal") || e.target.classList.contains("gallery-modal-stage")) {
+      closeModal();
+    }
+  };
+
+  // Swipe detection handlers
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      showNext();
+    } else if (isRightSwipe) {
+      showPrev();
+    }
   };
 
   useEffect(() => {
     const onKey = (e) => {
-      if (selectedIndex === null || isMobile) return;
+      if (selectedIndex === null) return;
       if (e.key === "Escape") closeModal();
       if (e.key === "ArrowRight") showNext();
       if (e.key === "ArrowLeft") showPrev();
     };
 
-    if (selectedIndex !== null && !isMobile) {
+    if (selectedIndex !== null) {
       document.addEventListener("keydown", onKey);
       document.body.style.overflow = "hidden";
     } else {
@@ -69,75 +82,78 @@ export default function Gallery() {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "auto";
     };
-  }, [selectedIndex, isMobile]);
+  }, [selectedIndex]);
 
   return (
     <main className="gallery-root page-section page-section--mint">
       <div className="page-inner">
-      <SectionHeader
-        eyebrow={t("gallery.eyebrow")}
-        title={t("gallery.title")}
-        subtitle={t("gallery.subtitle")}
-      />
+        <SectionHeader
+          eyebrow={t("gallery.eyebrow")}
+          title={t("gallery.title")}
+          subtitle={t("gallery.subtitle")}
+        />
 
-      <section className="gallery-grid">
-        {images.map((src, idx) => (
+        <section className="gallery-grid">
+          {images.map((src, idx) => (
+            <div
+              key={idx}
+              className="gallery-item"
+              role="button"
+              tabIndex={0}
+              onClick={() => openModal(idx)}
+              onKeyDown={(e) =>
+                (e.key === "Enter" || e.key === " ") && openModal(idx)
+              }
+              aria-label={`Open image ${idx + 1}`}
+            >
+              <img src={src} alt={`${t("gallery.imageAlt")} ${idx + 1}`} />
+            </div>
+          ))}
+        </section>
+
+        {selectedIndex !== null && (
           <div
-            key={idx}
-            className={`gallery-item ${isMobile ? "gallery-item-static" : ""}`}
-            role={isMobile ? undefined : "button"}
-            tabIndex={isMobile ? undefined : 0}
-            onClick={() => openModal(idx)}
-            onKeyDown={(e) =>
-              !isMobile && (e.key === "Enter" || e.key === " ") && openModal(idx)
-            }
-            aria-label={isMobile ? undefined : `Open image ${idx + 1}`}
+            className="gallery-modal"
+            onClick={handleBackdropClick}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            role="dialog"
+            aria-modal="true"
           >
-            <img src={src} alt={`${t("gallery.imageAlt")} ${idx + 1}`} />
+            <button
+              className="gallery-modal-close"
+              onClick={closeModal}
+              aria-label="Close preview"
+            >
+              &times;
+            </button>
+
+            <button
+              className="gallery-nav gallery-prev"
+              onClick={showPrev}
+              aria-label="Previous image"
+            >
+              ❮
+            </button>
+
+            <div className="gallery-modal-stage">
+              <img
+                src={images[selectedIndex]}
+                alt={`${t("gallery.imageAlt")} ${selectedIndex + 1}`}
+                className="gallery-large-img"
+              />
+            </div>
+
+            <button
+              className="gallery-nav gallery-next"
+              onClick={showNext}
+              aria-label="Next image"
+            >
+              ❯
+            </button>
           </div>
-        ))}
-      </section>
-
-      {!isMobile && selectedIndex !== null && (
-        <div
-          className="gallery-modal"
-          onClick={handleBackdropClick}
-          role="dialog"
-          aria-modal="true"
-        >
-          <button
-            className="gallery-modal-close"
-            onClick={closeModal}
-            aria-label="Close preview"
-          >
-            &times;
-          </button>
-
-          <button
-            className="gallery-nav gallery-prev"
-            onClick={showPrev}
-            aria-label="Previous image"
-          >
-            ❮
-          </button>
-
-          <div className="gallery-modal-stage">
-            <img
-              src={images[selectedIndex]}
-              alt={`${t("gallery.imageAlt")} ${selectedIndex + 1}`}
-              className="gallery-large-img"
-            />
-          </div>
-
-          <button
-            className="gallery-nav gallery-next"
-            onClick={showNext}
-            aria-label="Next image"
-          >
-            ❯
-          </button>
-        </div>
-      )}
+        )}
       </div>
     </main>
   );

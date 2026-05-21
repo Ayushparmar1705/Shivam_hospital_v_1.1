@@ -5,6 +5,7 @@ const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng) => {
+    sessionStorage.setItem('preferredLanguage', lng);
     i18n.changeLanguage(lng);
   };
 

@@ -1,0 +1,287 @@
+/* Floating Widget Container */
+.quick-help-wrapper {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+}
+
+/* Floating Toggle Button */
+.quick-help-toggle-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 16px rgba(13, 148, 136, 0.35);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal, 0.3s ease);
+  position: relative;
+  outline: none;
+}
+
+.quick-help-toggle-btn:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.45);
+}
+
+.quick-help-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+.quick-help-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.quick-help-toggle-btn.is-active {
+  background: var(--color-navy, #0f172a);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.35);
+}
+
+.quick-help-toggle-btn.is-active .quick-help-toggle-icon {
+  transform: rotate(90deg);
+}
+
+/* Floating Help Panel */
+.quick-help-panel {
+  position: absolute;
+  bottom: 4.5rem;
+  right: 0;
+  width: 360px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom right;
+}
+
+.quick-help-panel.is-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Panel Header */
+.quick-help-header {
+  padding: 1.25rem;
+  background: linear-gradient(135deg, var(--teal-mist, #f0fdfa) 0%, rgba(255, 255, 255, 0.9) 100%);
+  border-bottom: 1px solid rgba(13, 148, 136, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quick-help-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.quick-help-icon-sparkle {
+  font-size: 1.35rem;
+  animation: float-emoji 2.5s ease-in-out infinite;
+}
+
+.quick-help-header h3 {
+  margin: 0;
+  font-family: var(--font-display, inherit);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-navy, #0f172a);
+}
+
+.quick-help-header p {
+  margin: 0.15rem 0 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #64748b);
+}
+
+.quick-help-close-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted, #64748b);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.quick-help-close-btn:hover {
+  background: rgba(15, 23, 42, 0.05);
+  color: var(--color-navy, #0f172a);
+}
+
+/* Panel Body */
+.quick-help-body {
+  padding: 1rem;
+  max-height: 320px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(13, 148, 136, 0.2) transparent;
+}
+
+/* Custom scrollbar styling for webkit */
+.quick-help-body::-webkit-scrollbar {
+  width: 5px;
+}
+.quick-help-body::-webkit-scrollbar-thumb {
+  background: rgba(13, 148, 136, 0.2);
+  border-radius: 4px;
+}
+
+/* FAQ List Inside Panel */
+.quick-help-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.quick-help-faq-item {
+  border: 1px solid rgba(13, 148, 136, 0.1);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.quick-help-faq-item:hover {
+  border-color: rgba(13, 148, 136, 0.25);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.quick-help-faq-item.is-active {
+  border-color: var(--teal);
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.05);
+}
+
+.quick-help-faq-trigger {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-navy, #0f172a);
+  cursor: pointer;
+  outline: none;
+}
+
+.quick-help-faq-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted, #64748b);
+  transition: transform 0.25s ease, color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.quick-help-faq-item.is-active .quick-help-faq-chevron {
+  transform: rotate(180deg);
+  color: var(--teal);
+}
+
+.quick-help-faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  padding: 0 1rem;
+}
+
+.quick-help-faq-item.is-active .quick-help-faq-content {
+  max-height: 180px; /* bound for widget size */
+  padding-bottom: 1rem;
+}
+
+.quick-help-faq-content p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--color-text-muted, #64748b);
+}
+
+/* Panel Footer */
+.quick-help-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(13, 148, 136, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+}
+
+.quick-help-call-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--teal);
+  color: #ffffff !important;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(13, 148, 136, 0.2);
+  transition: all 0.2s ease;
+}
+
+.quick-help-call-btn:hover {
+  background: var(--teal-dark);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+  transform: translateY(-1px);
+}
+
+.quick-help-call-btn:active {
+  transform: translateY(0);
+}
+
+/* Animations */
+@keyframes float-emoji {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Responsive Viewports */
+@media (max-width: 480px) {
+  .quick-help-wrapper {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .quick-help-panel {
+    width: calc(100vw - 3rem);
+    right: 0;
+    bottom: 4.5rem;
+  }
+}

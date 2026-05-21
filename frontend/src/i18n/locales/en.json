@@ -5,7 +5,8 @@
     "gallery": "Gallery",
     "testimonials": "Testimonials",
     "contact": "Contact",
-    "book": "Book a Visit"
+    "book": "Contact Us",
+    "languageTooltip": "You can change the language here anytime!"
   },
   "home": {
     "welcome": "Caring for Every Child, Every Day",
@@ -16,7 +17,7 @@
     "badge": "Shivam Children Hospital · Botad",
     "trustHeadline": "No. 1 trusted children's hospital in Botad",
     "pmjayShort": "PM-JAY Empanelled",
-    "cta": "Book a Visit",
+    "cta": "Contact Us",
     "ctaSecondary": "Our story",
     "ctaEyebrow": "Take the next step",
     "callNow": "Call +91 78782 82866",
@@ -103,7 +104,7 @@
     "trustHours": "Emergency care",
     "trustCommunity": "Trusted in Botad",
     "ctaTitle": "Ready to visit Shivam Children Hospital?",
-    "ctaDesc": "Book a consultation or reach us for emergencies — we are here for families in Botad.",
+    "ctaDesc": "Contact us directly or reach us for emergencies — we are here for families in Botad.",
     "ctaButton": "Contact us",
     "doctor": {
       "eyebrow": "Lead specialist",
@@ -186,5 +187,20 @@
     "english": "English",
     "hindi": "हिंदी",
     "gujarati": "ગુજરાતી"
+  },
+  "faq": {
+    "eyebrow": "Common Questions",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find quick answers to common questions about our services and policies.",
+    "widgetTitle": "Quick Help",
+    "widgetSubtitle": "Common Questions & Info",
+    "q1": "What are the hospital consulting hours?",
+    "a1": "Our outpatient department (OPD) is open Monday to Friday from 10:00 AM to 1:00 PM & 5:00 PM to 7:00 PM, and Saturday from 10:00 AM to 1:00 PM & 5:00 PM to 6:00 PM. The hospital is closed on Sundays, except for emergencies.",
+    "q2": "Is Ayushman Bharat (PM-JAY) empanelled at your hospital?",
+    "a2": "Yes, Shivam Children Hospital is empanelled under Ayushman Bharat (PM-JAY). Eligible families can receive cashless pediatric treatment and care according to government schemes.",
+    "q3": "What specialized facilities are available for critical newborns?",
+    "a3": "We feature an advanced Neonatal Intensive Care Unit (NICU) and Pediatric Intensive Care Unit (PICU) equipped with CPAP respiratory support, phototherapy units, central oxygen systems, and precise monitoring devices managed by our neonatology team.",
+    "q4": "How can I contact the hospital for emergency cases?",
+    "a4": "For pediatric emergencies, you can call us directly on our dedicated helplines at +91 78782 82866 or 02849 231444. Our emergency team is prepared to receive critical cases."
   }
 }

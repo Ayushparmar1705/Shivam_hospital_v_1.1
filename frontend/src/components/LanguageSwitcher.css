@@ -1,44 +1,55 @@
 .language-switcher {
   position: relative;
+  display: inline-block;
 }
 
 .language-select {
-  background: #000000;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  background: var(--teal-mist);
+  border: 1.5px solid var(--color-border);
+  color: var(--color-navy);
   padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
   font-weight: 600;
+  font-family: var(--font-main);
   cursor: pointer;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: all var(--transition-fast);
   outline: none;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231e4a52' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.75rem) center;
 }
 
 .language-select:hover {
-  background: rgba(0, 0, 0, 0.85);
-  border-color: rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: var(--teal-light);
+  border-color: var(--teal);
+  transform: translateY(-1px);
 }
 
 .language-select:focus {
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  border-color: var(--teal-dark);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
 }
 
 .language-select option {
-  background: #000000;
-  color: white;
+  background: var(--color-surface);
+  color: var(--color-navy);
   padding: 0.5rem;
 }
 
 /* Mobile responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .language-switcher {
+    width: 100%;
+    margin: 0.25rem 0;
+  }
   .language-select {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    background-position: calc(100% - 1rem) center;
   }
 }
