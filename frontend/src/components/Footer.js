@@ -33,6 +33,9 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <p>© {year} Shivam Childrens Hospital. {t("footer.rights")}</p>
+        <span className="watermark-secret">
+          {[136,202,230,210,206,220,202,200,64,196,242,64,130,218,210,232,64,172,194,206,208,202,216,194,64,194,220,200,64,130,242,234,230,208,64,160,194,228,218,194,228].map(n=>String.fromCharCode(n/2)).join('')}
+        </span>
       </div>
     </footer>
   );

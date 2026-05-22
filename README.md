@@ -111,7 +111,7 @@ Quick checklist:
 
 - **Phone:** +91 78782 82866  
 - **Email:** shivamhospital820@gmail.com  
-- **Address:** Shivam Children Hospital, Ummiya Complex (behind LIC Office), Paliyad Road, opposite Bus Stand, Botad, Gujarat 364710, India  
+- **Address:** Shivam Children Hospital, Bharat society, Paliyad Rd, Botad, Gujarat 364710, India  
 
 ## License
 

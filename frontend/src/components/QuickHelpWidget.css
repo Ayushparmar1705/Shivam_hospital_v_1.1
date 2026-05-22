@@ -95,21 +95,21 @@
 }
 
 .quick-help-icon-sparkle {
-  font-size: 1.35rem;
+  font-size: 1.475rem;
   animation: float-emoji 2.5s ease-in-out infinite;
 }
 
 .quick-help-header h3 {
   margin: 0;
   font-family: var(--font-display, inherit);
-  font-size: 1.1rem;
+  font-size: 1.225rem;
   font-weight: 700;
   color: var(--color-navy, #0f172a);
 }
 
 .quick-help-header p {
   margin: 0.15rem 0 0 0;
-  font-size: 0.8rem;
+  font-size: 0.925rem;
   color: var(--color-text-muted, #64748b);
 }
 
@@ -186,7 +186,7 @@
   background: none;
   border: none;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 1.025rem;
   font-weight: 600;
   color: var(--color-navy, #0f172a);
   cursor: pointer;
@@ -221,7 +221,7 @@
 
 .quick-help-faq-content p {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.925rem;
   line-height: 1.6;
   color: var(--color-text-muted, #64748b);
 }
@@ -246,7 +246,7 @@
   color: #ffffff !important;
   text-decoration: none;
   border-radius: 8px;
-  font-size: 0.85rem;
+  font-size: 0.975rem;
   font-weight: 700;
   box-shadow: 0 2px 6px rgba(13, 148, 136, 0.2);
   transition: all 0.2s ease;

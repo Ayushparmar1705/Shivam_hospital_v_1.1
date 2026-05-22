@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import SectionHeader from "../components/SectionHeader";
 
 const STORY_PARAS = ["paragraph1", "paragraph2", "paragraph3"];
-const TRUST_KEYS = ["trustPmjay", "trustNicu", "trustHours", "trustCommunity"];
+const TRUST_KEYS = ["trustPicu", "trustNicu", "trustHours", "trustCommunity"];
 
 export default function About() {
   const { t } = useTranslation();
@@ -22,7 +21,6 @@ export default function About() {
     "developmental",
     "growth",
     "pharmacy",
-    "lab",
   ];
 
   const facilities = ["f1", "f2", "f3", "f4", "f5", "f6", "f7"];
@@ -50,10 +48,6 @@ export default function About() {
               <p key={key} className="about-prose">{t(`about.${key}`)}</p>
             ))}
 
-            <aside className="about-pmjay glass-card" aria-label={t("about.pmjayTitle")}>
-              <span className="about-pmjay-badge">{t("about.pmjayBadge")}</span>
-              <p>{t("about.paragraph4")}</p>
-            </aside>
 
             <blockquote className="about-quote">
               <p>{t("about.paragraph5")}</p>
@@ -83,20 +77,7 @@ export default function About() {
           </div>
         </section>
 
-        <section className="about-doctor" aria-labelledby="about-doctor-heading">
-          <div className="about-doctor-card elegant-card">
-            <div className="about-doctor-badge" aria-hidden="true">
-              <span className="about-doctor-icon">+</span>
-            </div>
-            <div className="about-doctor-info">
-              <span className="about-block-eyebrow">{t("about.doctor.eyebrow")}</span>
-              <h2 id="about-doctor-heading">{t("about.doctor.name")}</h2>
-              <p className="about-doctor-quals">{t("about.doctor.qualifications")}</p>
-              <p className="about-doctor-role">{t("about.doctor.specialization")}</p>
-              <p className="about-doctor-bio">{t("about.doctor.bio")}</p>
-            </div>
-          </div>
-        </section>
+
 
         <div className="about-lower-grid">
           <section className="about-block" aria-labelledby="about-services-heading">
@@ -131,16 +112,7 @@ export default function About() {
           </section>
         </div>
 
-        <div className="about-cta-band glass-card">
-          <div>
-            <h2>{t("about.ctaTitle")}</h2>
-            <p>{t("about.ctaDesc")}</p>
-          </div>
-          <Link className="cta-button cta-button--primary" to="/contact">
-            {t("about.ctaButton")}
-            <span aria-hidden="true">→</span>
-          </Link>
-        </div>
+
       </div>
     </main>
   );

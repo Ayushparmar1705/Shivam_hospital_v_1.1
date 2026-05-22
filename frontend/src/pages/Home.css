@@ -76,7 +76,7 @@
 }
 
 .home-trust-chips li {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   padding: 0.4rem 0.9rem;
   background: rgba(255, 255, 255, 0.85);
@@ -89,7 +89,7 @@
 .home-trust-headline {
   margin: 1rem 0 0;
   max-width: 36ch;
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-size: clamp(1.125rem, 1.8vw, 1.275rem);
   font-weight: 700;
   line-height: 1.45;
   color: var(--teal-dark);
@@ -136,7 +136,7 @@
 
 .home-hero-card-tagline {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.475rem;
   color: var(--color-navy);
   margin-bottom: 1.5rem;
   line-height: 1.35;
@@ -156,12 +156,12 @@
 .home-hero-stats strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   color: var(--teal-dark);
 }
 
 .home-hero-stats span {
-  font-size: 0.7rem;
+  font-size: 0.825rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -169,7 +169,7 @@
 }
 
 .home-hero-card-note {
-  font-size: 0.88rem;
+  font-size: 1.005rem;
   color: var(--color-text-muted);
   line-height: 1.6;
 }
@@ -194,13 +194,13 @@
 
 .home-excellence-item h3 {
   font-family: var(--font-main);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   margin: 1rem 0 0.5rem;
 }
 
 .home-excellence-item p {
-  font-size: 0.9rem;
+  font-size: 1.025rem;
   color: var(--color-text-muted);
   line-height: 1.6;
 }
@@ -232,7 +232,7 @@
 
 .home-pillar-num {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 2.625rem;
   color: var(--teal-light);
   line-height: 1;
   display: block;
@@ -241,19 +241,19 @@
 
 .home-pillar h3 {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.475rem;
   margin-bottom: 0.5rem;
 }
 
 .home-pillar p {
   color: var(--color-text-muted);
-  font-size: 0.95rem;
+  font-size: 1.075rem;
   margin-bottom: 1rem;
 }
 
 .home-pillar-link {
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 1.005rem;
   color: var(--teal);
 }
 
@@ -307,13 +307,13 @@
 
 .home-doctor-avatar span {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   font-weight: 600;
   color: #fff;
 }
 
 .home-doctor-eyebrow {
-  font-size: 0.68rem;
+  font-size: 0.805rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -322,12 +322,12 @@
 }
 
 .home-doctor-card h3 {
-  font-size: 1.65rem;
+  font-size: 1.775rem;
   margin-bottom: 0.35rem;
 }
 
 .home-doctor-meta {
-  font-size: 0.85rem;
+  font-size: 0.975rem;
   font-weight: 600;
   color: var(--color-text-muted);
   margin-bottom: 0.25rem;
@@ -340,7 +340,7 @@
 }
 
 .home-doctor-bio {
-  font-size: 0.95rem;
+  font-size: 1.075rem;
   color: var(--color-text-muted);
   line-height: 1.7;
 }
@@ -365,31 +365,21 @@
   background: var(--teal);
   color: #fff;
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 1.125rem;
   border-radius: var(--radius-full);
   margin-bottom: 1rem;
 }
 
 .home-step h3 {
   font-family: var(--font-main);
-  font-size: 1.05rem;
+  font-size: 1.175rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 .home-step p {
-  font-size: 0.92rem;
+  font-size: 1.045rem;
   color: var(--color-text-muted);
-}
-
-.home-gallery-note {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: 2.5rem;
-  background: var(--color-surface);
 }
 
 .home-cta {

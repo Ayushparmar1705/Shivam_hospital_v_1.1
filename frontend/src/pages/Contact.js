@@ -45,9 +45,8 @@ export default function Contact() {
             <span className="contact-card-icon" aria-hidden="true">◎</span>
             <h3>{t("contact.address")}</h3>
             <p>
-              Shivam Children Hospital, Bharat Society, Ummiya Complex (Behind LIC
-              Office), Opposite Bus Stand, Paliyad Road, Botad, Gujarat 364710,
-              India
+              Shivam Children Hospital, Bharat society, Paliyad Rd, Botad,
+              Gujarat 364710, India
             </p>
             <a
               className="contact-link"

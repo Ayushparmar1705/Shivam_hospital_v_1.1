@@ -10,7 +10,7 @@ const PILLARS = [
   { key: 3, to: "/testimonials" },
 ];
 const STEPS = ["step1", "step2", "step3"];
-const TRUST = ["trustPmjay", "trustNicu", "trustHours", "trustCommunity"];
+const TRUST = ["trustPicu", "trustNicu", "trustHours", "trustCommunity"];
 
 const heroBg = `${process.env.PUBLIC_URL}/images/img1.jpg`;
 
@@ -155,18 +155,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="page-section page-section--cream">
-        <div className="page-inner home-gallery-note elegant-card">
-          <div>
-            <span className="eyebrow">{t("gallery.eyebrow")}</span>
-            <h2 className="display-lg">{t("home.galleryTeaserTitle")}</h2>
-            <p className="lead">{t("home.galleryTeaserDesc")}</p>
-          </div>
-          <Link className="cta-button cta-button--soft" to="/gallery">
-            {t("home.viewGallery")}
-          </Link>
-        </div>
-      </section>
 
       <section className="page-section">
         <div className="page-inner">

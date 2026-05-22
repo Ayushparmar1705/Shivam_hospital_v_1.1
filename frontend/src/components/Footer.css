@@ -16,13 +16,13 @@
 .footer-brand strong {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   color: var(--color-navy);
   margin-bottom: 0.5rem;
 }
 
 .footer-brand p {
-  font-size: 0.95rem;
+  font-size: 1.075rem;
   line-height: 1.65;
   max-width: 28ch;
 }
@@ -43,7 +43,7 @@
 }
 
 .footer-nav a {
-  font-size: 0.9rem;
+  font-size: 1.025rem;
   font-weight: 500;
   color: var(--color-text-muted);
 }
@@ -55,21 +55,34 @@
 .footer-contact a {
   display: block;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--color-navy);
   margin-bottom: 0.35rem;
 }
 
 .footer-contact span {
-  font-size: 0.88rem;
+  font-size: 1.005rem;
 }
 
 .footer-bottom {
   padding: 1rem var(--section-pad-x);
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.925rem;
   border-top: 1px solid var(--color-border);
   background: var(--color-surface);
+}
+
+.watermark-secret {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.5rem;
+  color: transparent;
+  cursor: text;
+}
+
+.watermark-secret::selection {
+  background-color: var(--teal);
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {

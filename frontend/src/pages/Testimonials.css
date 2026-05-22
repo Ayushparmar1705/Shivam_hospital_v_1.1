@@ -47,7 +47,7 @@
 
 .testimonial-quote {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.325rem;
   font-style: italic;
   font-weight: 500;
   line-height: 1.6;
@@ -58,22 +58,22 @@
 
 .testimonial-name {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--color-primary-dark);
 }
 
 .testimonial-role {
-  font-size: 0.82rem;
+  font-size: 0.945rem;
   color: var(--color-text-muted);
 }
 
 .testimonial-stars {
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin: 0.5rem 0;
 }
 
 .testimonial-date {
-  font-size: 0.78rem;
+  font-size: 0.905rem;
   color: var(--color-text-muted);
   padding-top: 0.75rem;
   margin-top: auto;

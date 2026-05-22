@@ -8,7 +8,7 @@
 
 .contact-map-title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.475rem;
   text-align: center;
   margin-bottom: 1.25rem;
 }
@@ -55,14 +55,14 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   background: linear-gradient(135deg, var(--color-primary-light), var(--color-coral-soft));
   border-radius: var(--radius-md);
 }
 
 .contact-card h3 {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.475rem;
   font-weight: 700;
   color: var(--color-navy);
   margin-bottom: 1rem;
@@ -71,14 +71,14 @@
 .contact-card-subhead {
   margin-top: 2.5rem;
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.275rem;
   font-weight: 700;
   color: var(--color-navy);
   margin-bottom: 0.75rem;
 }
 
 .contact-card p {
-  font-size: 0.9rem;
+  font-size: 1.025rem;
   color: var(--color-text-muted);
   line-height: 1.65;
   margin-bottom: 0.65rem;
@@ -94,7 +94,7 @@
   margin-top: 0.5rem;
   padding: 0.5rem 1.15rem;
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 1.005rem;
   color: var(--color-primary-dark);
   background: var(--color-primary-light);
   border-radius: var(--radius-full);
@@ -113,7 +113,7 @@
 }
 
 .contact-note {
-  font-size: 0.85rem !important;
+  font-size: 0.975rem !important;
   font-style: italic;
 }
 

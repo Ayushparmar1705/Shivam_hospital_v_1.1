@@ -44,7 +44,7 @@ export default function QuickHelpWidget() {
 
         <div className="quick-help-body">
           <div className="quick-help-faq-list">
-            {["1", "2", "3", "4"].map((num, idx) => {
+            {["1", "2", "3"].map((num, idx) => {
               const isItemOpen = activeFaq === idx;
               return (
                 <div 

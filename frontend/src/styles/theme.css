@@ -108,21 +108,21 @@ button {
 
 .display-xl {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-size: clamp(2.625rem, 6vw, 4.375rem);
   font-weight: 600;
   line-height: 1.08;
 }
 
 .display-lg {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.125rem, 4vw, 3.125rem);
   font-weight: 600;
   line-height: 1.12;
 }
 
 .eyebrow {
   display: inline-block;
-  font-size: 0.72rem;
+  font-size: 0.845rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -131,7 +131,7 @@ button {
 }
 
 .lead {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   line-height: 1.75;
   color: var(--color-text-muted);
 }
@@ -177,7 +177,7 @@ button {
 
 .section-eyebrow {
   display: inline-block;
-  font-size: 0.72rem;
+  font-size: 0.845rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -186,12 +186,12 @@ button {
 }
 
 .section-heading {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.125rem, 4vw, 3.125rem);
   margin-bottom: 0.85rem;
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.225rem;
   color: var(--color-text-muted);
   line-height: 1.75;
 }
@@ -217,7 +217,7 @@ button {
   gap: 0.5rem;
   font-family: var(--font-main);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.075rem;
   padding: 0.95rem 1.75rem;
   border-radius: var(--radius-full);
   border: none;
