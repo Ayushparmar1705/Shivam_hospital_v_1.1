@@ -32,6 +32,7 @@ app.use(
 app.get("/api/reviews", async (_req, res) => {
   try {
     const reviews = await getReviews();
+    console.log("reviews in backend = ", reviews);
     res.json(reviews);
   } catch (error) {
     console.error("Error in /api/reviews:", error.message);

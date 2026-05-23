@@ -8,11 +8,24 @@ export default function Testimonials() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const getReviews = async () => {
-    const result = await fetch('https://shivam-hospital-git-25cceb-shivam-children-hospital-s-projects.vercel.app/api/reviews');
-    const data = await result.json();
-    console.log(data);
-    setReviews(data.reviews);
-    setLoading(false);
+    try {
+      const result = await fetch('https://shivam-hospital-git-25cceb-shivam-children-hospital-s-projects.vercel.app/api/reviews');
+      const data = await result.json();
+      console.log("Fetched reviews data:", data);
+
+      if (Array.isArray(data)) {
+        setReviews(data);
+      } else if (data && Array.isArray(data.reviews)) {
+        setReviews(data.reviews);
+      } else {
+        setReviews([]);
+      }
+    } catch (err) {
+      console.error("Error fetching reviews:", err);
+      setReviews([]);
+    } finally {
+      setLoading(false);
+    }
   }
   useEffect(() => {
     getReviews();
