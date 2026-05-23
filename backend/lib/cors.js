@@ -11,8 +11,14 @@ export function getAllowedOrigins() {
 
 export function isOriginAllowed(origin) {
   if (!origin) return true;
+
   const allowed = getAllowedOrigins();
-  return allowed.includes(origin) || allowed.includes("*");
+
+  return (
+    allowed.includes(origin) ||
+    allowed.includes("*") ||
+    origin.includes("vercel.app")
+  );
 }
 
 export function applyCorsHeaders(req, res) {
