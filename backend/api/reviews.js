@@ -29,29 +29,30 @@
 //   }
 // }
 
-import fs from "fs";
-import path from "path";
+const fs = require("fs");
+const path = require("path");
 
-export default function handler(req, res) {
+module.exports = (req, res) => {
   try {
-    // Correct absolute path
-    const filePath = path.join(process.cwd(), "reviews.json");
+    const filePath = path.join(
+      process.cwd(),
+      "data",
+      "reviews.json"
+    );
 
-    // Read file
-    const jsonData = fs.readFileSync(filePath, "utf-8");
+    console.log("FILE PATH:", filePath);
 
-    // Convert to object
-    const data = JSON.parse(jsonData);
+    const fileData = fs.readFileSync(filePath, "utf8");
 
-    // Send response
-    res.status(200).json(data.reviews || []);
+    const jsonData = JSON.parse(fileData);
+
+    return res.status(200).json(jsonData);
   } catch (error) {
-    console.log(error);
+    console.log("ERROR:", error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
-      message: "Failed to fetch reviews",
       error: error.message,
     });
   }
-}
+};
