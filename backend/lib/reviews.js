@@ -164,11 +164,12 @@ export async function fetchReviewsFromSerpApi() {
     const allReviews = data?.reviews || [];
 
     // Ensure 5-star all the time and less than 2 months old
-    const filteredReviews = allReviews.filter(
-      (review) => review.rating >= 4
+    const filtered = allReviews.filter(
+      (r) => r.rating >= 4
     );
+    console.log(filtered);
 
-    return filteredReviews;
+    return filtered;
   } catch (error) {
     console.error("Error fetching reviews from SerpAPI:", error.message);
     return null; // Return null to indicate error
