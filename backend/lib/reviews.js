@@ -40,11 +40,11 @@ function getReviewsFilePath() {
   if (process.env.VERCEL) {
     return path.join("/tmp", "reviews.json");
   }
-  return path.join(process.cwd(), "reviews.json");
+  return path.join(process.cwd(), "data", "reviews.json");
 }
 
 function getBaselineFilePath() {
-  return path.join(process.cwd(), "reviews.json");
+  return path.join(process.cwd(), "data", "reviews.json");
 }
 
 function adjustReviewDates(reviews) {
@@ -203,11 +203,12 @@ export async function getReviews() {
       saveCachedData(merged);
       return freshReviews.slice(0, 6);
     } else {
-      console.log("SerpAPI call succeeded but returned 0 reviews matching criteria (5-star, < 2 months old).");
-      // Update cache timestamp so we don't hammer the API, but keep the existing cache reviews
-      saveCachedData(cachedData.reviews);
-      // Return the cached reviews as fallback sliced to 6
-      return cachedData.reviews.slice(0, 6);
+      console.log("SerpAPI returned 0 matching reviews. Falling back to static reviews from data/reviews.json.");
+      // Load static baseline reviews (dates are adjusted to appear recent by adjustReviewDates)
+      const baselineData = loadCachedData();
+      if (baselineData.reviews.length > 0) {
+        return baselineData.reviews.slice(0, 6);
+      }
     }
   }
 
