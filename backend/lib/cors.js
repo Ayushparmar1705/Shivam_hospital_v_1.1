@@ -1,77 +1,34 @@
-// export function getAllowedOrigins() {
-//   const raw =
-//     process.env.CORS_ORIGIN ||
-//     "http://localhost:3000,http://127.0.0.1:3000,https://www.shivamchildrenhospital.in";
-
-//   return raw
-//     .split(",")
-//     .map((origin) => origin.trim())
-//     .filter(Boolean);
-// }
-
-// export function isOriginAllowed(origin) {
-//   if (!origin) return true;
-
-//   const allowed = getAllowedOrigins();
-
-//   return (
-//     allowed.includes(origin) ||
-//     allowed.includes("*") ||
-//     origin.includes("vercel.app")
-//   );
-// }
-
-// export function applyCorsHeaders(req, res) {
-//   const origin = req.headers.origin;
-//   if (origin && isOriginAllowed(origin)) {
-//     res.setHeader("Access-Control-Allow-Origin", origin);
-//     res.setHeader("Vary", "Origin");
-//   } else if (!origin) {
-//     res.setHeader("Access-Control-Allow-Origin", getAllowedOrigins()[0]);
-//   }
-//   res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
-//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-// }
-
 export function getAllowedOrigins() {
-  return [
-    "http://localhost:3000",
-    "http://localhost:5173",
-  ];
+  const raw =
+    process.env.CORS_ORIGIN ||
+    "http://localhost:3000,http://127.0.0.1:3000,https://www.shivamchildrenhospital.in";
+
+  return raw
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
 }
 
 export function isOriginAllowed(origin) {
-  // Allow all Vercel deployments
-  if (
-    origin &&
-    origin.includes("vercel.app")
-  ) {
-    return true;
-  }
+  if (!origin) return true;
+
+  const allowed = getAllowedOrigins();
 
   return (
-    getAllowedOrigins().includes(origin)
+    allowed.includes(origin) ||
+    allowed.includes("*") ||
+    origin.includes("vercel.app")
   );
 }
 
 export function applyCorsHeaders(req, res) {
   const origin = req.headers.origin;
-
-  // Allow frontend origin
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    origin || "*"
-  );
-
-  res.setHeader("Vary", "Origin");
-
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET,OPTIONS"
-  );
-
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Content-Type"
-  );
+  if (origin && isOriginAllowed(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+  } else if (!origin) {
+    res.setHeader("Access-Control-Allow-Origin", getAllowedOrigins()[0]);
+  }
+  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 }
