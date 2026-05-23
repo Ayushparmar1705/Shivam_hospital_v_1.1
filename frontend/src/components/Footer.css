@@ -1,0 +1,92 @@
+.site-footer {
+  background: linear-gradient(180deg, var(--teal-mist) 0%, var(--color-surface) 100%);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.footer-inner {
+  max-width: var(--layout-wide);
+  margin: 0 auto;
+  padding: 3.5rem var(--section-pad-x) 2.5rem;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.footer-brand strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.625rem;
+  color: var(--color-navy);
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+  font-size: 1.075rem;
+  line-height: 1.65;
+  max-width: 28ch;
+}
+
+.footer-logo-mark {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--peach));
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-nav a {
+  font-size: 1.025rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.footer-nav a:hover {
+  color: var(--teal);
+}
+
+.footer-contact a {
+  display: block;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color-navy);
+  margin-bottom: 0.35rem;
+}
+
+.footer-contact span {
+  font-size: 1.005rem;
+}
+
+.footer-bottom {
+  padding: 1rem var(--section-pad-x);
+  text-align: center;
+  font-size: 0.925rem;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.watermark-secret {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.5rem;
+  color: transparent;
+  cursor: text;
+}
+
+.watermark-secret::selection {
+  background-color: var(--teal);
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,275 @@
+/* Shivam Children Hospital — light, cohesive pediatric brand */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --teal: #0d9488;
+  --teal-dark: #0f766e;
+  --teal-light: #ccfbf1;
+  --teal-mist: #e6f7f5;
+  --mint-bg: #f4fbf9;
+  --cream: #fffbf7;
+  --peach: #f97316;
+  --peach-soft: #ffedd5;
+  --sky: #7dd3fc;
+  --sky-soft: #e0f2fe;
+
+  --color-primary: var(--teal);
+  --color-primary-dark: var(--teal-dark);
+  --color-primary-light: var(--teal-light);
+  --color-coral: #f97316;
+  --color-coral-soft: var(--peach-soft);
+  --color-sky: #38bdf8;
+  --color-sky-soft: var(--sky-soft);
+  --color-navy: #1e4a52;
+  --color-navy-soft: #2d6a6f;
+
+  --color-bg: var(--mint-bg);
+  --color-surface: #ffffff;
+  --color-text-main: #1a3a40;
+  --color-text-muted: #5b7a80;
+  --color-border: rgba(30, 74, 82, 0.1);
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-main: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --layout-max: 1200px;
+  --layout-wide: 1320px;
+  --layout-prose: 880px;
+  --nav-height: 6rem;
+  --section-pad-y: clamp(4rem, 10vw, 6.5rem);
+  --section-pad-x: clamp(1.25rem, 4vw, 2rem);
+
+  --shadow-sm: 0 2px 12px rgba(30, 74, 82, 0.06);
+  --shadow-md: 0 16px 40px rgba(30, 74, 82, 0.08);
+  --shadow-lg: 0 24px 56px rgba(30, 74, 82, 0.1);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: 0.2s var(--ease-smooth);
+  --transition-normal: 0.4s var(--ease-smooth);
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--color-bg);
+  color: var(--color-text-main);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-navy);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--teal-dark);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--teal);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.625rem, 6vw, 4.375rem);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.125rem, 4vw, 3.125rem);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.845rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  margin-bottom: 0.75rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+
+.page-inner {
+  max-width: var(--layout-max);
+  margin: 0 auto;
+  padding-left: var(--section-pad-x);
+  padding-right: var(--section-pad-x);
+}
+
+.page-inner--wide {
+  max-width: var(--layout-wide);
+}
+
+.page-section {
+  padding-top: var(--section-pad-y);
+  padding-bottom: var(--section-pad-y);
+  scroll-margin-top: var(--nav-height);
+}
+
+.page-section--cream {
+  background: var(--cream);
+}
+
+.page-section--white {
+  background: var(--color-surface);
+}
+
+.page-section--mint {
+  background: linear-gradient(180deg, var(--teal-mist) 0%, var(--mint-bg) 100%);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.section-header--wide {
+  max-width: var(--layout-prose);
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.845rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  margin-bottom: 0.75rem;
+}
+
+.section-heading {
+  font-size: clamp(2.125rem, 4vw, 3.125rem);
+  margin-bottom: 0.85rem;
+}
+
+.section-subtitle {
+  font-size: 1.225rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.elegant-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.elegant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 1.075rem;
+  padding: 0.95rem 1.75rem;
+  border-radius: var(--radius-full);
+  border: none;
+  text-decoration: none;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+}
+
+.cta-button--primary {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.3);
+}
+
+.cta-button--primary:hover {
+  color: #fff;
+}
+
+.cta-button--secondary {
+  background: var(--color-surface);
+  color: var(--color-navy);
+  border: 2px solid var(--color-border);
+}
+
+.cta-button--soft {
+  background: var(--teal-light);
+  color: var(--teal-dark);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--teal-light);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal);
+}
