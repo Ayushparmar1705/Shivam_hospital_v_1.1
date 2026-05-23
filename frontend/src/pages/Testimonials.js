@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { apiUrl } from "../config/api";
 import SectionHeader from "../components/SectionHeader";
 
 export default function Testimonials() {
@@ -8,7 +7,7 @@ export default function Testimonials() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(apiUrl("/api/reviews"))
+    fetch("https://shivam-hospital-git-25cceb-shivam-children-hospital-s-projects.vercel.app/api/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(Array.isArray(data) ? data : []))
       .catch((err) => console.error("Error fetching reviews:", err))

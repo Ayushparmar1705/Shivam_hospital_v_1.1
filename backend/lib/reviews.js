@@ -40,11 +40,11 @@ function getReviewsFilePath() {
   if (process.env.VERCEL) {
     return path.join("/tmp", "reviews.json");
   }
-  return path.join(process.cwd(), "data", "reviews.json");
+  return path.join(process.cwd(), "reviews.json");
 }
 
 function getBaselineFilePath() {
-  return path.join(process.cwd(), "data", "reviews.json");
+  return path.join(process.cwd(), "reviews.json");
 }
 
 function adjustReviewDates(reviews) {
