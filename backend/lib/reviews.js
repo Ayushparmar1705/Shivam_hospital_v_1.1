@@ -217,45 +217,233 @@
 //   return cachedData.reviews.slice(0, 6);
 // }
 
-import fs from "fs/promises";
+import axios from "axios";
+import fs from "fs";
 import path from "path";
 
-export default async function handler(req, res) {
-  try {
-    const filePath = path.join(process.cwd(), "reviews.json");
+const SIXTY_DAYS_MS = 60 * 24 * 60 * 60 * 1000;
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 
-    console.log("PATH:", filePath);
+// Check if review is less than 2 months old
+export function isLessThanTwoMonthsOld(review) {
+  if (review.iso_date) {
+    const reviewTime = new Date(review.iso_date).getTime();
 
-    const exists = await fs
-      .access(filePath)
-      .then(() => true)
-      .catch(() => false);
+    if (!isNaN(reviewTime)) {
+      const diffMs = Date.now() - reviewTime;
+      return diffMs < SIXTY_DAYS_MS;
+    }
+  }
 
-    console.log("EXISTS:", exists);
+  if (review.date) {
+    const dateStr = review.date.toLowerCase();
 
-    if (!exists) {
-      return res.status(404).json({
-        success: false,
-        message: "reviews.json not found",
-        path: filePath,
-      });
+    if (dateStr.includes("year")) {
+      return false;
     }
 
-    const fileData = await fs.readFile(filePath, "utf-8");
+    if (dateStr.includes("month")) {
+      const match = dateStr.match(/(\d+)/);
 
-    const jsonData = JSON.parse(fileData);
+      if (match) {
+        const months = parseInt(match[1], 10);
+        return months < 2;
+      }
 
-    return res.status(200).json({
-      success: true,
-      count: jsonData.reviews?.length || 0,
-      data: jsonData.reviews || [],
-    });
-  } catch (error) {
-    console.error(error);
+      return true;
+    }
 
-    return res.status(500).json({
-      success: false,
-      error: error.message,
-    });
+    return true;
   }
+
+  return false;
+}
+
+// File path
+function getReviewsFilePath() {
+  return path.join(process.cwd(), "data", "reviews.json");
+}
+
+// Load cached reviews
+function loadCachedData() {
+  const filePath = getReviewsFilePath();
+
+  try {
+    if (fs.existsSync(filePath)) {
+      const data = JSON.parse(
+        fs.readFileSync(filePath, "utf8")
+      );
+
+      return data;
+    }
+  } catch (error) {
+    console.error(
+      "Error reading cached reviews:",
+      error.message
+    );
+  }
+
+  return {
+    lastUpdated: 0,
+    reviews: [],
+  };
+}
+
+// Save reviews cache
+function saveCachedData(reviews) {
+  try {
+    const filePath = getReviewsFilePath();
+
+    fs.writeFileSync(
+      filePath,
+      JSON.stringify(
+        {
+          lastUpdated: Date.now(),
+          reviews,
+        },
+        null,
+        2
+      )
+    );
+  } catch (error) {
+    console.error(
+      "Error writing cache file:",
+      error.message
+    );
+  }
+}
+
+// Merge reviews
+function mergeReviews(newReviews, existingReviews) {
+  const seen = new Set();
+  const merged = [];
+
+  for (const r of newReviews) {
+    const key =
+      r.review_id ||
+      `${r.user?.name || ""}_${r.snippet || ""}`;
+
+    if (key && !seen.has(key)) {
+      seen.add(key);
+      merged.push(r);
+    }
+  }
+
+  for (const r of existingReviews) {
+    const key =
+      r.review_id ||
+      `${r.user?.name || ""}_${r.snippet || ""}`;
+
+    if (key && !seen.has(key)) {
+      seen.add(key);
+      merged.push(r);
+    }
+  }
+
+  return merged.slice(0, 12);
+}
+
+// Fetch reviews from SerpAPI
+export async function fetchReviewsFromSerpApi() {
+  const apiKey = process.env.SERPAPI_KEY;
+
+  if (!apiKey) {
+    console.error("SERPAPI_KEY missing");
+    return null;
+  }
+
+  try {
+    console.log(
+      "Attempting to fetch fresh reviews from SerpAPI..."
+    );
+
+    const url =
+      "https://serpapi.com/search.json?engine=google_maps_reviews" +
+      "&data_id=0x3958dc870a151ff9:0xef999dd84c53a16c" +
+      "&hl=en&sort_by=ratingHigh" +
+      `&api_key=${apiKey}`;
+
+    const { data } = await axios.get(url);
+
+    console.log(
+      "FULL SERPAPI RESPONSE:",
+      JSON.stringify(data, null, 2)
+    );
+
+    const allReviews = data?.reviews || [];
+
+    console.log(
+      "TOTAL REVIEWS FROM API:",
+      allReviews.length
+    );
+
+    // IMPORTANT FIX
+    // Previously:
+    // r.rating === 5 && isLessThanTwoMonthsOld(r)
+
+    // New relaxed filter
+    const filtered = allReviews.filter(
+      (r) => r.rating >= 4
+    );
+
+    console.log(
+      "FILTERED REVIEWS:",
+      filtered.length
+    );
+
+    return filtered;
+  } catch (error) {
+    console.error(
+      "Error fetching reviews from SerpAPI:",
+      error.message
+    );
+
+    return null;
+  }
+}
+
+// Main function
+export async function getReviews() {
+  const cachedData = loadCachedData();
+
+  const cacheAge =
+    Date.now() - cachedData.lastUpdated;
+
+  const expired = cacheAge > CACHE_TTL_MS;
+
+  // Return cache if valid
+  if (
+    !expired &&
+    cachedData.reviews.length > 0
+  ) {
+    return cachedData.reviews.slice(0, 6);
+  }
+
+  // Fetch fresh reviews
+  const freshReviews =
+    await fetchReviewsFromSerpApi();
+
+  if (
+    freshReviews &&
+    freshReviews.length > 0
+  ) {
+    console.log(
+      `Successfully fetched ${freshReviews.length} reviews`
+    );
+
+    const merged = mergeReviews(
+      freshReviews,
+      cachedData.reviews
+    );
+
+    saveCachedData(merged);
+
+    return merged.slice(0, 6);
+  }
+
+  console.log(
+    "Falling back to cached reviews"
+  );
+
+  return cachedData.reviews.slice(0, 6);
 }
