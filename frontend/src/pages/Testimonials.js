@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { apiUrl } from "../config/api";
 import SectionHeader from "../components/SectionHeader";
 
 export default function Testimonials() {
   const { t } = useTranslation();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const getReviews = async () => {
+    const result = await fetch('https://shivam-hospital-git-25cceb-shivam-children-hospital-s-projects.vercel.app/api/reviews');
+    const data = await result.json();
+    console.log(data);
+    setReviews(data.reviews);
+    setLoading(false);
+  }
   useEffect(() => {
-    fetch("https://shivam-hospital-git-25cceb-shivam-children-hospital-s-projects.vercel.app/api/reviews")
-      .then((res) => res.json())
-      .then((data) => setReviews(Array.isArray(data) ? data : []))
-      .catch((err) => console.error("Error fetching reviews:", err))
-      .finally(() => setLoading(false));
+    getReviews();
   }, []);
 
   return (
