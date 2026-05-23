@@ -7,7 +7,6 @@ export default function Testimonials() {
   const { t } = useTranslation();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     fetch(apiUrl("/api/reviews"))
       .then((res) => res.json())
