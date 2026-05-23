@@ -221,28 +221,32 @@ import axios from "axios";
 import fs from "fs";
 import path from "path";
 
-const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 1 day
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 
+// Always use real file
 function getReviewsFilePath() {
-  if (process.env.VERCEL) {
-    return "/tmp/reviews.json";
-  }
-
-  return path.join(process.cwd(), "reviews.json");
+  return path.join(process.cwd(), "data", "reviews.json");
 }
 
-// Load cached reviews
+// Load reviews
 function loadCachedReviews() {
   try {
     const filePath = getReviewsFilePath();
 
+    console.log("Reading reviews from:", filePath);
+
     if (fs.existsSync(filePath)) {
-      const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
+      const data = JSON.parse(
+        fs.readFileSync(filePath, "utf8")
+      );
 
       return data;
     }
   } catch (error) {
-    console.error("Error loading cached reviews:", error.message);
+    console.error(
+      "Error loading cached reviews:",
+      error.message
+    );
   }
 
   return {
@@ -251,7 +255,7 @@ function loadCachedReviews() {
   };
 }
 
-// Save reviews cache
+// Save reviews
 function saveCachedReviews(reviews) {
   try {
     const filePath = getReviewsFilePath();
@@ -268,7 +272,10 @@ function saveCachedReviews(reviews) {
       )
     );
   } catch (error) {
-    console.error("Error saving cached reviews:", error.message);
+    console.error(
+      "Error saving cached reviews:",
+      error.message
+    );
   }
 }
 
@@ -281,28 +288,40 @@ export async function fetchReviewsFromSerpApi() {
       throw new Error("SERPAPI_KEY missing");
     }
 
-    const url = "https://serpapi.com/search.json";
-
-    const response = await axios.get(url, {
-      params: {
-        engine: "google_maps_reviews",
-        data_id: "0x3958dc870a151ff9:0xef999dd84c53a16c",
-        hl: "en",
-        sort_by: "ratingHigh",
-        api_key: apiKey,
-      },
-    });
+    const response = await axios.get(
+      "https://serpapi.com/search.json",
+      {
+        params: {
+          engine: "google_maps_reviews",
+          data_id:
+            "0x3958dc870a151ff9:0xef999dd84c53a16c",
+          hl: "en",
+          sort_by: "ratingHigh",
+          api_key: apiKey,
+        },
+      }
+    );
 
     console.log(
-      "SerpAPI Response:",
+      "FULL SERPAPI RESPONSE:",
       JSON.stringify(response.data, null, 2)
     );
 
     const reviews = response.data?.reviews || [];
 
-    // Only keep 5-star reviews
+    console.log(
+      "TOTAL REVIEWS:",
+      reviews.length
+    );
+
+    // Relaxed filter
     const filteredReviews = reviews.filter(
-      (review) => review.rating === 5
+      (review) => review.rating >= 4
+    );
+
+    console.log(
+      "FILTERED REVIEWS:",
+      filteredReviews.length
     );
 
     return filteredReviews.slice(0, 6);
@@ -317,30 +336,43 @@ export async function fetchReviewsFromSerpApi() {
   }
 }
 
-// Main function
+// Main
 export async function getReviews() {
+
   const cachedData = loadCachedReviews();
 
-  const cacheAge = Date.now() - cachedData.lastUpdated;
+  const cacheAge =
+    Date.now() - cachedData.lastUpdated;
 
-  const isCacheValid = cacheAge < CACHE_TTL_MS;
+  const isCacheValid =
+    cacheAge < CACHE_TTL_MS;
 
-  // Use cache if valid
-  if (isCacheValid && cachedData.reviews.length > 0) {
+  // Use cache
+  if (
+    isCacheValid &&
+    cachedData.reviews.length > 0
+  ) {
     console.log("Using cached reviews");
 
     return {
-      lastUpdated: cachedData.lastUpdated,
+      lastUpdated:
+        cachedData.lastUpdated,
       reviews: cachedData.reviews,
     };
   }
 
-  console.log("Fetching fresh reviews from SerpAPI...");
+  console.log(
+    "Fetching fresh reviews..."
+  );
 
-  const freshReviews = await fetchReviewsFromSerpApi();
+  const freshReviews =
+    await fetchReviewsFromSerpApi();
 
-  // If API success
-  if (freshReviews && freshReviews.length > 0) {
+  // Success
+  if (
+    freshReviews &&
+    freshReviews.length > 0
+  ) {
 
     saveCachedReviews(freshReviews);
 
@@ -350,11 +382,15 @@ export async function getReviews() {
     };
   }
 
-  console.log("Using fallback cached reviews");
+  console.log(
+    "Using fallback reviews"
+  );
 
-  // Fallback cache
+  // Fallback
   return {
-    lastUpdated: cachedData.lastUpdated,
-    reviews: cachedData.reviews || [],
+    lastUpdated:
+      cachedData.lastUpdated,
+    reviews:
+      cachedData.reviews || [],
   };
 }
