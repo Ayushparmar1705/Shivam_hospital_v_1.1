@@ -161,7 +161,11 @@ export async function fetchReviewsFromSerpApi() {
       `&api_key=${apiKey}`;
 
     const { data } = await axios.get(url);
-    const allReviews = data?.reviews || [];
+    const allReviews =
+      data?.reviews ||
+      data?.place_results?.reviews ||
+      data?.user_reviews ||
+      [];
 
     // Ensure 5-star all the time and less than 2 months old
     const filtered = allReviews.filter(
