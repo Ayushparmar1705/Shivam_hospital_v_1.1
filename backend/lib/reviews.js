@@ -164,8 +164,8 @@ export async function fetchReviewsFromSerpApi() {
     const allReviews = data?.reviews || [];
 
     // Ensure 5-star all the time and less than 2 months old
-    const filtered = allReviews.filter(
-      (r) => r.rating === 5 && isLessThanTwoMonthsOld(r)
+    const filteredReviews = reviews.filter(
+      (review) => review.rating >= 4
     );
 
     return filtered;
