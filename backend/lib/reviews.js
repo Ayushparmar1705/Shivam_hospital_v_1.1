@@ -220,23 +220,42 @@
 import fs from "fs/promises";
 import path from "path";
 
-export async function getReviews() {
+export default async function handler(req, res) {
   try {
-    const filePath = path.join(
-      process.cwd(),
-      "reviews.json"
-    );
+    const filePath = path.join(process.cwd(), "reviews.json");
 
-    console.log("Reading file:", filePath);
+    console.log("PATH:", filePath);
+
+    const exists = await fs
+      .access(filePath)
+      .then(() => true)
+      .catch(() => false);
+
+    console.log("EXISTS:", exists);
+
+    if (!exists) {
+      return res.status(404).json({
+        success: false,
+        message: "reviews.json not found",
+        path: filePath,
+      });
+    }
 
     const fileData = await fs.readFile(filePath, "utf-8");
 
     const jsonData = JSON.parse(fileData);
 
-    return jsonData.reviews || [];
+    return res.status(200).json({
+      success: true,
+      count: jsonData.reviews?.length || 0,
+      data: jsonData.reviews || [],
+    });
   } catch (error) {
-    console.error("getReviews error:", error);
+    console.error(error);
 
-    return [];
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    });
   }
 }
