@@ -198,7 +198,7 @@ export async function getReviews() {
   // Cache is expired or empty, attempt fresh fetch
   console.log("Attempting to fetch fresh reviews from SerpAPI...");
   const freshReviews = await fetchReviewsFromSerpApi();
-
+  console.log("Fresh reviews code = ", freshReviews);
 
   if (freshReviews !== null) {
     // API call succeeded (did not throw error and API key was present)
