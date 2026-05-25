@@ -1,8 +1,0 @@
-{
-  "version": 2,
-  "rewrites": [
-    { "source": "/api/reviews", "destination": "/api/reviews.js" },
-    { "source": "/api/fred-reviews", "destination": "/api/fred-reviews.js" },
-    { "source": "/api/health", "destination": "/api/health.js" }
-  ]
-}
