@@ -1,7 +1,7 @@
 export function getAllowedOrigins() {
   const raw =
     process.env.CORS_ORIGIN ||
-    "http://localhost:3000,http://127.0.0.1:3000,https://www.shivamchildrenhospital.in";
+    "http://localhost:3000,http://127.0.0.1:3000,https://www.shivamchildrenhospital.in,https://shivamchildrenhospital.in"
 
   return raw
     .split(",")

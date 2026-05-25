@@ -7,7 +7,8 @@ export default function Testimonials() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const getReviews = async () => {
-    const result = await fetch('http://localhost:5000/api/reviews');
+    const result = await fetch('https://shivam-hospital-v-1-1-dx7w-7z8qsvked.vercel.app/api/fred-reviews');
+    console.log(result);
     const data = await result.json();
     console.log(data);
     setReviews(Array.isArray(data) ? data : (data.reviews || []));
