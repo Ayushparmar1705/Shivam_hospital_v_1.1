@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { apiUrl } from "../config/api";
 import SectionHeader from "../components/SectionHeader";
 
 export default function Testimonials() {
@@ -11,7 +10,7 @@ export default function Testimonials() {
     const result = await fetch('http://localhost:5000/api/reviews');
     const data = await result.json();
     console.log(data);
-    setReviews(data.reviews);
+    setReviews(Array.isArray(data) ? data : (data.reviews || []));
     setLoading(false);
   }
   useEffect(() => {
